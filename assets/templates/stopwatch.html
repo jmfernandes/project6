@@ -1,9 +1,11 @@
 <div class="container">
 	<h2>{{message}}</h2>
 
-	{{date1}}
+	<span ng-bind="time_elapsed"></span>
 	<br>
-	{{date2}}
+	<button ng-click="start(true)">Start</button>
+	<button ng-click="start(false)">Stop</button>
+	<br>
 
 	<a href="/project6/#!/home"> Back</a>
 </div>
