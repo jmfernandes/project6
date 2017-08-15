@@ -1,0 +1,17 @@
+<div class="container">
+	<h2> View Populations </h2>
+	Search:
+	<br/>
+		<input type="text" ng-model="name" />
+	<br/>
+<table id="searchTextResults">
+	<tr><th>State</th><th>Population</th></tr>
+
+	<tr ng-repeat="info in data | filter:name">
+		<td style="padding-right: 20px">{{info.name}}:</td>
+		<td>{{info.value | number}} {{info.units}}</td>
+	</tr>
+</table>
+
+	<a href="/project5/#!/home"> Back</a>
+</div>
