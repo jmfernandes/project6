@@ -7,7 +7,7 @@ mainApp.controller('StopwatchController', ['$scope', function($scope){
   };
 
   $scope.start = function(condition){
-    $scope.initial_time = get_date();
+    $scope.initial_time = $scope.get_date();
     return $scope.initial_time;
   };
 }]);
