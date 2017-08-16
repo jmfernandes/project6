@@ -2,7 +2,7 @@
 	<h2>{{message}}</h2>
 
 	<p>
-	{{time_elapsed | mstotime }}
+	{{getElapsedMs() | mstotime }}
 	</p>
 	<button ng-click="start()">Start</button>
 	<button ng-click="stop()">Stop</button>
