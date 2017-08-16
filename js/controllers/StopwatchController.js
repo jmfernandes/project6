@@ -8,13 +8,13 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
   };
 
   $scope.start = function(){
-    if ( angular.isUndefined(repeat) ){
+    if (!repeat) {
     initial_time = $scope.get_date();
-  }
     repeat = $interval(function () {
       var now = new Date();
       $scope.time_elapsed = now.getTime() - initial_time.getTime();
     }, 10);
+  }
   };
 
   $scope.stop = function(){
