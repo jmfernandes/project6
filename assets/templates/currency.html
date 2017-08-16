@@ -1,7 +1,20 @@
 <div class="container">
-	The message
-	<h2>{{message}}</h2>
 
-  <br>
+	<form ng-submit="convert()">
+	<input type="text" ng-model="$scope.input"  size="30"
+					 placeholder="enter value here">
+	<select ng-model="firstSelect"
+        	ng-init="firstSelect = options[0]"
+					ng-options="option.name for option in options">
+	</select>
+	<div> {{output}}</div>
+	<select ng-model="secondSelect"
+        	ng-init="secondSelect = options[0]"
+					ng-options="option.name for option in options">
+	</select>
+	<input class="btn-primary" type="submit" value="convert">
+	</form><br>
+	<p>firstSelect = {{firstSelect.value}}</p>
+	<p>secondSelect = {{secondSelect.value}}</p>
 	<a href="#!/home"> Back</a>
 </div>
