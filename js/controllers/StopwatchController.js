@@ -8,9 +8,10 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
   };
 
   $scope.start = function(){
-    if ( angular.isDefined(repeat) ) return;
     if (!repeat) {
+    if ($scope.time_elapsed == 0 ){
     initial_time = $scope.get_date();
+  }
     repeat = $interval(function () {
       var now = new Date();
       $scope.time_elapsed = now.getTime() - initial_time.getTime();
