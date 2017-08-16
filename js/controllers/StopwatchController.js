@@ -1,4 +1,4 @@
-mainApp.controller('StopwatchController', ['$scope', function($scope){
+mainApp.controller('StopwatchController', ['$scope', '$interval' function($scope,$interval){
   $scope.message = 'This is the stopwatch app';
   $scope.time_elapsed = 0;
 
@@ -12,5 +12,9 @@ mainApp.controller('StopwatchController', ['$scope', function($scope){
       var now = new Date();
       $scope.time_elapsed = now.getTime() - initial_time.getTime();
     }, 10);
+  };
+
+  $scope.stop = function(){
+    $interval.cancel(repeat);
   };
 }]);
