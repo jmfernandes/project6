@@ -7,7 +7,10 @@ mainApp.controller('StopwatchController', ['$scope', function($scope){
   };
 
   $scope.start = function(condition){
-    $scope.initial_time = $scope.get_date();
-    return $scope.initial_time;
+    initial_time = $scope.get_date();
+    repeat = $setInterval(function () {
+      var now = new Date();
+      $scope.time_elapsed = now.getTime() - initial_time.getTime();
+    }, 10);
   };
 }]);
