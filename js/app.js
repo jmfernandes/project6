@@ -40,8 +40,8 @@ mainApp.filter('millSecondsToTimeString', function() {
     if (seconds !== 0) {
         timeString += (seconds !== 1) ? (seconds + ' seconds ') : (seconds + ' second ');
     }
-		if (millseconds !== 0) {
-        timeString += (millseconds !== 1) ? (millseconds + ' milliseconds ') : (millseconds + ' milliseconds ');
+		if (millseconds) {
+        timeString += (millseconds !== 1) ? (millseconds + ' millseconds ') : (millseconds + ' millseconds ');
     }
 
     return timeString;
