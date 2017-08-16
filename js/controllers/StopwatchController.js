@@ -28,6 +28,11 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
   }
   };
 
+  $scope.reset = function() {
+  total_time  = 0;
+  time_elapsed = 0;
+};
+
   $scope.$on('$destroy', function() {
    // Make sure that the interval is destroyed too
    $scope.stop();
