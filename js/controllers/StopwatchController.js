@@ -29,6 +29,7 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
   };
 
   $scope.reset = function() {
+  initial_time = $scope.get_date();
   total_time  = 0;
   time_elapsed = 0;
 };
