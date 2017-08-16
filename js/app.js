@@ -22,7 +22,6 @@ mainApp.filter('millSecondsToTimeString', function() {
     var oneHour = oneMinute * 60;
     var oneDay = oneHour * 24;
 
-		var milliseconds = Math.floor(millseconds % 1000);
     var seconds = Math.floor((millseconds % oneMinute) / oneSecond);
     var minutes = Math.floor((millseconds % oneHour) / oneMinute);
     var hours = Math.floor((millseconds % oneDay) / oneHour);
@@ -38,13 +37,24 @@ mainApp.filter('millSecondsToTimeString', function() {
     if (minutes !== 0) {
         timeString += (minutes !== 1) ? (minutes + ' minutes ') : (minutes + ' minute ');
     }
-    if (seconds !== 0) {
+    if (seconds !== 0 || millseconds < 1000) {
         timeString += (seconds !== 1) ? (seconds + ' seconds ') : (seconds + ' second ');
-    }
-		if (true) {
-        timeString += (true) ? (milliseconds + ' milliseconds ') : (milliseconds + ' milliseconds ');
     }
 
     return timeString;
 };
+});
+
+mainApp.filter('mstotime',function(){
+
+    return function (s) {
+        var ms = s % 1000;
+        s = (s - ms) / 1000;
+        var secs = s % 60;
+        s = (s - secs) / 60;
+        var mins = s % 60;
+        var hrs = (s - mins) / 60;
+
+        return hrs + ':' + mins + ':' + secs + ':' + ms;
+    };
 });
