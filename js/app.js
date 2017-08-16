@@ -22,6 +22,7 @@ mainApp.filter('millSecondsToTimeString', function() {
     var oneHour = oneMinute * 60;
     var oneDay = oneHour * 24;
 
+		var milliseconds = Math.floor(millseconds % 1000);
     var seconds = Math.floor((millseconds % oneMinute) / oneSecond);
     var minutes = Math.floor((millseconds % oneHour) / oneMinute);
     var hours = Math.floor((millseconds % oneDay) / oneHour);
@@ -40,8 +41,8 @@ mainApp.filter('millSecondsToTimeString', function() {
     if (seconds !== 0) {
         timeString += (seconds !== 1) ? (seconds + ' seconds ') : (seconds + ' second ');
     }
-		if (millseconds) {
-        timeString += (millseconds !== 1) ? (millseconds + ' millseconds ') : (millseconds + ' millseconds ');
+		if (milliseconds !== 0) {
+        timeString += (milliseconds !== 1) ? (milliseconds + ' milliseconds ') : (milliseconds + ' milliseconds ');
     }
 
     return timeString;
