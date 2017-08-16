@@ -1,0 +1,6 @@
+Use command to start server
+
+http-server -a localhost -p 8000 -c-1
+
+
+Otherwise it caches the pages too long and won’t update

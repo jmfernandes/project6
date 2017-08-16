@@ -10,6 +10,10 @@ mainApp.config(function($routeProvider) {
 			templateUrl: 'assets/templates/stopwatch.html', //startin with '/' makes it relative to root domain
 			controller: 'StopwatchController'
 		})
+		.when('/currency', {
+			templateUrl: 'assets/templates/currency.html', //startin with '/' makes it relative to root domain
+			controller: 'CurrencyController'
+		})
 		.otherwise({
 			redirectTo: '/home'
 		});
