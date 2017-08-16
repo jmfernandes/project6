@@ -7,7 +7,7 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
     return new Date();
   };
 
-  $scope.start = function(condition){
+  $scope.start = function(){
     if (!repeat) {
     initial_time = $scope.get_date();
     repeat = $interval(function () {
@@ -18,8 +18,10 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
   };
 
   $scope.stop = function(){
+    if (repeat){
     $interval.cancel(repeat);
     repeat = undefined;
+  }
   };
 
   $scope.$on('$destroy', function() {
