@@ -18,8 +18,10 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
   };
 
   $scope.stop = function(){
+    if (repeat){
     $interval.cancel(repeat);
     repeat = undefined;
+  }
   };
 
   $scope.$on('$destroy', function() {
