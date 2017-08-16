@@ -1,9 +1,10 @@
 mainApp.controller('StopwatchController', ['$scope', '$interval', function($scope,$interval){
   $scope.message = 'This is the stopwatch app';
-  $scope.time_elapsed = 0;
-  $scope.total_elapsed = 0;
 
   var repeat;
+  var time_elapsed = 0;
+  var total_time = 0;
+
   $scope.get_date = function(){
     return new Date();
   };
@@ -12,8 +13,8 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
     if (!repeat) {
     initial_time = $scope.get_date();
     repeat = $interval(function () {
-      var now = new Date();
-      $scope.time_elapsed = now.getTime() - initial_time.getTime();
+      now = $scope.get_date();
+      time_elapsed = now.getTime() - initial_time.getTime();
     }, 10);
   }
   };
@@ -22,8 +23,8 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
     if (repeat){
     $interval.cancel(repeat);
     repeat = undefined;
-    $scope.total_elapsed += $scope.time_elapsed;
-    $scope.time_elapsed = 0;
+    total_time += time_elapsed;
+    time_elapsed = 0;
   }
   };
 
@@ -33,7 +34,7 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
  });
 
  $scope.getElapsedMs = function() {
-  return $scope.total_elapsed + $scope.time_elapsed;
+  return total_time + time_elapsed;
 };
 
 }]);
