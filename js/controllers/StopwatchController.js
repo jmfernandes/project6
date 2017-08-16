@@ -24,4 +24,9 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
   }
   };
 
+  $scope.$on('$destroy', function() {
+   // Make sure that the interval is destroyed too
+   $scope.stop();
+ });
+
 }]);
