@@ -37,8 +37,11 @@ mainApp.filter('millSecondsToTimeString', function() {
     if (minutes !== 0) {
         timeString += (minutes !== 1) ? (minutes + ' minutes ') : (minutes + ' minute ');
     }
-    if (seconds !== 0 || millseconds < 1000) {
+    if (seconds !== 0) {
         timeString += (seconds !== 1) ? (seconds + ' seconds ') : (seconds + ' second ');
+    }
+		if (millseconds !== 0) {
+        timeString += (millseconds !== 1) ? (millseconds + ' milliseconds ') : (millseconds + ' milliseconds ');
     }
 
     return timeString;
