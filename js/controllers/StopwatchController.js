@@ -29,7 +29,9 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
    $scope.stop();
  });
 
- $scope.filter('millSecondsToTimeString', function() {
+}]);
+
+mainApp.filter('millSecondsToTimeString', function() {
   return function(millseconds) {
     var oneSecond = 1000;
     var oneMinute = oneSecond * 60;
@@ -58,5 +60,3 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
     return timeString;
 };
 });
-
-}]);
