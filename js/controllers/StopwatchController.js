@@ -22,7 +22,7 @@ mainApp.controller('StopwatchController', ['$scope', '$interval', function($scop
     if (repeat){
     $interval.cancel(repeat);
     repeat = undefined;
-    $scope.total_elapsed += time_elapsed;
+    $scope.total_elapsed += $scope.time_elapsed;
     $scope.time_elapsed = 0;
   }
   };
