@@ -1,20 +1,26 @@
+<style>
+.error {color:red;
+				font-size:200%;}
+</style>
 <div class="container">
 
-	<form ng-submit="convert()">
-	<input type="text" ng-model="$scope.input"  size="30"
+	<form name="currencyForm">
+	<input type="number" name="firstInput" ng-model="input"  size="30"
 					 placeholder="enter value here">
 	<select ng-model="firstSelect"
-        	ng-init="firstSelect = options[0]"
-					ng-options="option.name for option in options">
+					ng-options="option.name for option in options"
+					ng-change="change(firstSelect.value)">
 	</select>
-	<div> {{output}}</div>
+	to
 	<select ng-model="secondSelect"
-        	ng-init="secondSelect = options[0]"
-					ng-options="option.name for option in options">
+					ng-options="option.name for option in options2">
 	</select>
-	<input class="btn-primary" type="submit" value="convert">
-	</form><br>
-	<p>firstSelect = {{firstSelect.value}}</p>
-	<p>secondSelect = {{secondSelect.value}}</p>
+	<input type="button" ng-click="convert()" value="convert" ng-disabled="input == null">
+	</form>
+	<div role="alert">
+	<span class="error" ng-show="currencyForm.firstInput.$error.number">
+		Not valid number!</span>
+</div>
+	<div> {{inputvalue | currency:currencyone_unit}} {{first_unit}} {{is_unit}} {{output | currency:currencytwo_unit}} {{second_unit}}</div>
 	<a href="#!/home"> Back</a>
 </div>
