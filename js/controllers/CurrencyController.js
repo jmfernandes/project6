@@ -58,7 +58,7 @@ mainApp.controller('CurrencyController', ['$scope', function($scope){
   }
   ];
 
-  $scope.message = 'This is the currency page';
+  $scope.message = 'This is the currency app';
   $scope.input = null;
   $scope.output = null;
   $scope.firstSelect = $scope.options[0];
